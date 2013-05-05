@@ -7,7 +7,7 @@ from views import *
 
 app = webapp2.WSGIApplication([
         ('/', MainPage),
-        ('/sign', Guestbook),
+        ('/submit', SubmitUrl),
     ],
     debug=settings.DEBUG)
 

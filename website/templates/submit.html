@@ -1,0 +1,9 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="{{ settings.STATIC_URL }}/css/main.css" />
+    </head>
+    <body>
+        You submitted: {{ url }}, that's {% if not valid %}not {% endif %}valid.
+        <a href="/">Back</a>
+    </body>
+</html>

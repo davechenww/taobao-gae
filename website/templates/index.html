@@ -3,21 +3,20 @@
         <link type="text/css" rel="stylesheet" href="{{ settings.STATIC_URL }}/css/main.css" />
     </head>
     <body>
-        {% for greeting in greetings %}
-        {% if greeting.author %}
-        <b>{{ greeting.author }}</b> wrote:
-        {% else %}
-        An anonymous person wrote:
-        {% endif %}
-        <blockquote>{{ greeting.content|escape }}</blockquote>
-        {% endfor %}
-
-        <form action="/sign" method="post">
-            <div><textarea name="content" rows="3" cols="60"></textarea></div>
-            <div><input type="submit" value="Sign Guestbook"></div>
+        <ul>
+            {% for shop in shops %}
+            <li>
+                <a href="{{ shop.get_taobao_url }}">{{ shop.name }}</a>
+                - {{ shop.get_taobao_url }}
+            </li>
+            {% endfor %}
+        </ul>
+        <form action="/submit" method="post">
+            <label>
+                Taobao Url:
+                <input type="text" name="url" cols="100">
+                <input type="submit" value="Submit">
+            </div>
         </form>
-
-        <a href="{{ url }}">{{ url_linktext }}</a>
-
     </body>
 </html>
